@@ -1,5 +1,3 @@
-import { IMovie } from "../../src/ts/models/Movie";
-
 describe("movieApp test with mock-data", () => {
   it("should show form, input and button", () => {
     cy.visit("http://localhost:1234");
