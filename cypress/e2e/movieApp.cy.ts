@@ -19,7 +19,7 @@ describe("movieApp test with mock-data", () => {
       fixture: "data",
     }).as("movieSearch");
     cy.get("#search").click();
-    cy.wait("@movieSearch").its("request.url").should("contain", "Die");
+    cy.wait("@movieSearch").its("request.url").should("contain", "s=Die");
   });
 
   it("should display list of movies", () => {
@@ -32,7 +32,7 @@ describe("movieApp test with mock-data", () => {
     cy.get("#movie-container > div").should("have.length", 9);
   });
 
-  it("should not display list of data", () => {
+  it("should not display list of movies", () => {
     cy.visit("http://localhost:1234");
     cy.get("#searchText").type("x");
     cy.intercept("GET", "http://omdbapi.com/*", {
